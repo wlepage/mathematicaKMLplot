@@ -1,0 +1,186 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6875,        177]
+NotebookOptionsPosition[      6362,        155]
+NotebookOutlinePosition[      6718,        171]
+CellTagsIndexPosition[      6675,        168]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.689492530725626*^9, 3.689492540228588*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.689492517073696*^9, 3.689492545772818*^9}, {
+  3.6894925861021843`*^9, 3.68949259388511*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{"\"\<DanielPCT.kml\>\"", ",", "\"\<LayerNames\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{3.6894925910396023`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"SpotMes\"\>", ",", "\<\"Directions01\"\>", 
+   ",", "\<\"Directions02\"\>", ",", "\<\"Directions03\"\>", 
+   ",", "\<\"Directions04\"\>", ",", "\<\"Directions05\"\>", 
+   ",", "\<\"Directions06\"\>", ",", "\<\"Directions07\"\>", 
+   ",", "\<\"Directions08\"\>", ",", "\<\"Directions09\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.689492548186967*^9, 3.689492595767742*^9, 3.689492739266038*^9, 
+   3.6894928800154877`*^9, {3.689493202997685*^9, 3.689493240109761*^9}, {
+   3.689493435171419*^9, 3.6894934486194763`*^9}, 3.689493480601449*^9, {
+   3.6894935417545013`*^9, 3.689493567599028*^9}, 3.689494907129827*^9, {
+   3.689494985327222*^9, 3.689495041220639*^9}, {3.689495103444557*^9, 
+   3.689495141534833*^9}, 3.689496814307314*^9, 3.689496857719219*^9, {
+   3.689496901416692*^9, 3.689496914321986*^9}, 3.689497034569334*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mappts", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<SpotMes.kml\>\"", ",", "\"\<GraphicsList\>\"", ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1800", ",", "1800"}], "}"}]}], ",", 
+     RowBox[{"GeoRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"30", ",", "52"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "130"}], ",", 
+          RowBox[{"-", "100"}]}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"GeoProjection", "->", "\"\<Equirectangular\>\""}], ",", 
+     RowBox[{"GeoBackground", "\[Rule]", 
+      RowBox[{"GeoStyling", "[", "\"\<ReliefMap\>\"", "]"}]}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.689492601946385*^9, 3.689492603285563*^9}, {
+   3.6894927028444366`*^9, 3.6894927038542337`*^9}, {3.6894928742604837`*^9, 
+   3.689492874849235*^9}, {3.689493154016035*^9, 3.689493157963469*^9}, {
+   3.6894932151987953`*^9, 3.6894932347833443`*^9}, {3.689493431557268*^9, 
+   3.689493444515045*^9}, 3.689493478533317*^9, {3.689493535194406*^9, 
+   3.689493564698264*^9}, {3.689494894256206*^9, 3.6894948972845783`*^9}, {
+   3.6894949808726387`*^9, 3.689495065497836*^9}, {3.689495120418539*^9, 
+   3.689495139844048*^9}, {3.6894961819227543`*^9, 3.689496232518959*^9}, {
+   3.689496268082416*^9, 3.689496317510057*^9}, {3.689496358288314*^9, 
+   3.689496412750622*^9}, {3.689496614625939*^9, 3.689496614903349*^9}, {
+   3.689496656480484*^9, 3.6894966976152773`*^9}, {3.6894967629849873`*^9, 
+   3.689496765663191*^9}, {3.6894968504855213`*^9, 3.689496852485344*^9}, {
+   3.689496893578938*^9, 3.6894969083655643`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"onlypts", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<SpotMes.kml\>\"", ",", "\"\<GraphicsList\>\"", ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1800", ",", "1800"}], "}"}]}], ",", 
+     RowBox[{"GeoRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"30", ",", "52"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "130"}], ",", 
+          RowBox[{"-", "100"}]}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"GeoProjection", "->", "\"\<Equirectangular\>\""}], ",", 
+     RowBox[{"GeoBackground", "\[Rule]", "None"}]}], "]"}]}], ";"}]], "Input",\
+
+ CellChangeTimes->{{3.689492601946385*^9, 3.689492603285563*^9}, {
+   3.6894927028444366`*^9, 3.6894927038542337`*^9}, {3.6894928742604837`*^9, 
+   3.689492874849235*^9}, {3.689493154016035*^9, 3.689493157963469*^9}, {
+   3.6894932151987953`*^9, 3.6894932347833443`*^9}, {3.689493431557268*^9, 
+   3.689493444515045*^9}, 3.689493478533317*^9, {3.689493535194406*^9, 
+   3.689493564698264*^9}, {3.689494894256206*^9, 3.6894948972845783`*^9}, {
+   3.6894949808726387`*^9, 3.689495065497836*^9}, {3.689495120418539*^9, 
+   3.689495139844048*^9}, {3.6894961819227543`*^9, 3.689496232518959*^9}, {
+   3.689496268082416*^9, 3.689496317510057*^9}, {3.689496358288314*^9, 
+   3.689496412750622*^9}, {3.689496614625939*^9, 3.689496614903349*^9}, {
+   3.689496656480484*^9, 3.6894966976152773`*^9}, {3.689496773160761*^9, 
+   3.689496812373856*^9}, {3.6894968540811996`*^9, 3.689496855653295*^9}, {
+   3.689496896731077*^9, 3.689496911701701*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<mappts.svg\>\"", ",", 
+    RowBox[{"mappts", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<SVG\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<onlypts.svg\>\"", ",", 
+    RowBox[{"onlypts", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<SVG\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<mappts.png\>\"", ",", 
+    RowBox[{"mappts", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<PNG\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<onlypts.png\>\"", ",", 
+    RowBox[{"onlypts", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<PNG\>\""}], "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.689496790486936*^9, 3.689496807216269*^9}, {
+  3.6894970294186296`*^9, 3.6894970315993767`*^9}, {3.689497158825732*^9, 
+  3.689497166062807*^9}}]
+},
+WindowSize->{958, 1035},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 140, 2, 28, "Input"],
+Cell[701, 24, 239, 5, 28, "Input"],
+Cell[CellGroupData[{
+Cell[965, 33, 166, 4, 28, "Input"],
+Cell[1134, 39, 884, 15, 46, "Output"]
+}, Open  ]],
+Cell[2033, 57, 1696, 33, 46, "Input"],
+Cell[3732, 92, 1638, 32, 46, "Input"],
+Cell[5373, 126, 985, 27, 138, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
